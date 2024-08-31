@@ -18,5 +18,14 @@ public class PostListener {
         this.postStore = postStore;
     }
 
+    @KafkaListener(topics = "post.created", groupId = "timeline-server")
+    public void listen(String message) {
+        try {
+            PostInfo post = objectMapper.readValue(message, PostInfo.class);
+            postStore.savePost(post);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
