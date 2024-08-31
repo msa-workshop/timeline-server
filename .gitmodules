@@ -1,0 +1,3 @@
+[submodule "sns-common"]
+	path = sns-common
+	url = https://github.com/msa-workshop/sns-common.git

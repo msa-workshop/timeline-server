@@ -1,0 +1,3 @@
+rootProject.name = 'timeline-server'
+include ':sns-common'
+
